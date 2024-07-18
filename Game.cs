@@ -1,13 +1,14 @@
-﻿using System;
+﻿using OpenTK.Windowing.Desktop;
+using OpenTK.Mathematics;
+using OpenTK.Graphics;
+using OpenTK.Windowing.Common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using OpenTK.Graphics.OpenGL4;
-using OpenTK.Mathematics;
 using OpenTK.Windowing.Common;
-using OpenTK.Windowing.Desktop;
-using OpenTK.Windowing.GraphicsLibraryFramework;
+using OpenTK.Graphics.OpenGL4;
 
 
 namespace Minecraft_clone
@@ -15,17 +16,23 @@ namespace Minecraft_clone
     // Game class that inherets from the game window class
     internal class Game : GameWindow
     {
-
         float[] vertices =
         {
-            0f, 0.5f, 0f, // top vertex
-            -0.5f, -0.5f, 0f, // bottem left 
-            0.5f, -0.5f, 0f // bottem right
+            -0.5f, 0.5f, 0f, // top left vertex
+            0.5f, 0.5f, 0f, // top right vertex
+            0.5f, -0.5f, 0f, // bottem right
+            -0.5f, -0.5f, 0f // bottem left 
+        };
+
+        uint[] indices =
+        {
+
         };
 
         // render pipeline vars
         int vao;
         int shaderProgram;
+        int vbo;
 
         // width and height of screen
         int width, height;
